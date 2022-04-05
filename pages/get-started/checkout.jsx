@@ -1,7 +1,7 @@
 function Checkout() {
   return (
     <>
-      <h1>Soy Checkout</h1>
+      <h1>Checkout</h1>
     </>
   );
 }

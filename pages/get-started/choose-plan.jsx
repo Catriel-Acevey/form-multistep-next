@@ -1,7 +1,7 @@
 function ChoosePlan() {
   return (
     <>
-      <h1>Soy Choose Plan</h1>
+      <h1>Choose Plan</h1>
     </>
   );
 }

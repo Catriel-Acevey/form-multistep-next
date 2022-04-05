@@ -14,7 +14,7 @@ function SignUp() {
   }, [loggedIn]);
   return (
     <>
-      <h1>Soy Sign-Up</h1>
+      <h1>Sign-Up</h1>
       <button onClick={() => setLoggedIn(true)}>NEXT</button>
     </>
   );
