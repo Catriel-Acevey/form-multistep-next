@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-// const LOGGED_IN = true;
-
 function SignUp() {
   const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
