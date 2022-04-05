@@ -11,33 +11,18 @@ const App = () => {
     const router = useRouter();
     const [formStep, setFormStep] = useState(0);
   
-    useEffect(() => { router.push(`/get-started/?step=${formStep}`, steps[formStep]), setFormStep(formStep) }, [formStep]);
+    useEffect(() => { router.push(`/?step=${formStep}`, steps[formStep]), setFormStep(formStep) }, [formStep]);
   
     return (
       <div>
           <div className="container p-4">
               {formStep === 0 && (
-                // <ContractInfo
-                //   formStep={formStep}
-                //   prevFormStep={prevFormStep}
-                //   nextFormStep={nextFormStep}
-                // />
                 <SignUp step={formStep} setStep={setFormStep} />
               )}
               {formStep === 1 && (
-                // <PersonalInfo
-                //   formStep={formStep}
-                //   prevFormStep={prevFormStep}
-                //   formStepToLast={formStepToLast}
-                // />
                 <ChoosePlan step={formStep} setStep={setFormStep} />
               )}
               {formStep >= 2 && (
-                // <ConfirmPurchase
-                //   formStep={formStep}
-                //   prevFormStep={prevFormStep}
-                //   nextFormStep={nextFormStep}
-                // />
                 <Checkout step={formStep} setStep={setFormStep} />
               )}  
           </div>
