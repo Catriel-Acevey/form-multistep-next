@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
 import { Formik, Field, Form } from "formik";
+import { useForm } from "../../context/formContext";
 
 function ChoosePlan() {
   const router = useRouter();
+  const { setFormFields } = useForm();
   return (
     <>
       <h1>Choose Plan</h1>
@@ -11,12 +13,8 @@ function ChoosePlan() {
           picked: "",
         }}
         onSubmit={(values) => {
-          console.log(values);
-          // router.push(`/get-started/checkout/${values}`);
-          router.push({
-            pathname: "/get-started/checkout/",
-            query: { values: values.picked },
-          });
+          setFormFields({ plan: values.picked });
+          router.push("/get-started/checkout/");
         }}
       >
         {({ values }) => (

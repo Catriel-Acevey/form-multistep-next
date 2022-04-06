@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
+import { useForm } from "../../context/formContext";
+
 function Checkout(props) {
   const router = useRouter();
-  console.log(router);
+  const { formFields } = useForm();
+  console.log(formFields);
   return (
     <>
       <h1>Checkout</h1>
