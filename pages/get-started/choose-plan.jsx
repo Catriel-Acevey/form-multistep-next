@@ -7,35 +7,49 @@ function ChoosePlan() {
   const { setFormFields } = useForm();
   return (
     <>
-      <h1>Choose Plan</h1>
-      <Formik
-        initialValues={{
-          picked: "",
-        }}
-        onSubmit={(values) => {
-          setFormFields({ plan: values.picked });
-          router.push("/get-started/checkout/");
-        }}
-      >
-        {({ values }) => (
-          <Form>
-            <div id="my-radio-group">Picked</div>
-            <div role="group" aria-labelledby="my-radio-group">
-              <label>
-                <Field type="radio" name="picked" value="month" />
-                Month
-              </label>
-              <label>
-                <Field type="radio" name="picked" value="year" />
-                Year
-              </label>
-              <div>Picked: {values.picked}</div>
-            </div>
+      <div className="container p-4 text-center">
+        <h1>Choose Plan</h1>
+        <div className="row">
+          <div className="col-md-4 offset-md-4">
+            <Formik
+              initialValues={{
+                picked: "",
+              }}
+              onSubmit={(values) => {
+                setFormFields({ plan: values.picked });
+                router.push("/get-started/checkout/");
+              }}
+            >
+              {({ values }) => (
+                <Form>
+                  <div id="my-radio-group">
+                    Choose The Plan That Works For You:
+                  </div>
+                  <div
+                    role="group"
+                    aria-labelledby="my-radio-group"
+                    className="form-check"
+                  >
+                    {/* <label className="">
+                      <Field type="radio" name="picked" value="month" />
+                      Month
+                    </label>
+                    <label className="">
+                      <Field type="radio" name="picked" value="year" />
+                      Year
+                    </label> */}
+                    {/* <div>Picked: {values.picked}</div> */}
+                  </div>
 
-            <button type="submit">Next</button>
-          </Form>
-        )}
-      </Formik>
+                  <button className="btn btn-success" type="submit">
+                    Next
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
