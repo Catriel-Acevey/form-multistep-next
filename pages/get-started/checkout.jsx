@@ -11,6 +11,7 @@ const stripePromise = loadStripe(
 function Checkout(props) {
   const router = useRouter();
   const { formFields } = useForm();
+  console.log(formFields);
   return (
     <>
       <Elements stripe={stripePromise}>

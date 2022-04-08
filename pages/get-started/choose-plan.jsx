@@ -7,10 +7,10 @@ function ChoosePlan() {
   const { setFormFields } = useForm();
   return (
     <>
-      <div className="container p-4 text-center">
-        <h1>Choose Plan</h1>
+      <div className="container p-4">
         <div className="row">
-          <div className="col-md-4 offset-md-4">
+          <div className="col-md-4 offset-md-4 ">
+            <h1>Choose Plan</h1>
             <Formik
               initialValues={{
                 picked: "",
@@ -25,11 +25,31 @@ function ChoosePlan() {
                   <div id="my-radio-group">
                     Choose The Plan That Works For You:
                   </div>
-                  <div
-                    role="group"
-                    aria-labelledby="my-radio-group"
-                    className="form-check"
-                  >
+                  <div role="group" aria-labelledby="my-radio-group">
+                    <div className="form-check">
+                      <Field
+                        className="form-check-input"
+                        type="radio"
+                        name="picked"
+                        value="month"
+                      />
+                      <label className="form-check-label" htmlFor="picked">
+                        Month
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <Field
+                        className="form-check-input"
+                        type="radio"
+                        name="picked"
+                        value="year"
+                      />
+
+                      <label className="form-check-label" htmlFor="picked">
+                        Year
+                      </label>
+                    </div>
+
                     {/* <label className="">
                       <Field type="radio" name="picked" value="month" />
                       Month
@@ -38,7 +58,7 @@ function ChoosePlan() {
                       <Field type="radio" name="picked" value="year" />
                       Year
                     </label> */}
-                    {/* <div>Picked: {values.picked}</div> */}
+                    <div>Picked: {values.picked}</div>
                   </div>
 
                   <button className="btn btn-success" type="submit">
