@@ -49,15 +49,6 @@ function ChoosePlan() {
                         Year
                       </label>
                     </div>
-
-                    {/* <label className="">
-                      <Field type="radio" name="picked" value="month" />
-                      Month
-                    </label>
-                    <label className="">
-                      <Field type="radio" name="picked" value="year" />
-                      Year
-                    </label> */}
                     <div>Picked: {values.picked}</div>
                   </div>
 

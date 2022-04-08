@@ -1,7 +1,7 @@
 import React from "react";
 
 const TextError = ({ text }) => {
-  return <div className="text-error p-2 ps-5">{text}</div>;
+  return <div className="invalid-feedback">{text}</div>;
 };
 
 export default TextError;

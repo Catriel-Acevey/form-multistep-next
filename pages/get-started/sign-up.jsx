@@ -20,8 +20,8 @@ import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
-import TextError from "./TextError";
 import * as Yup from "yup";
+import TextError from "./../../components/TextError";
 
 const FormRegister = () => {
   const router = useRouter();
@@ -133,7 +133,7 @@ const FormRegister = () => {
                     )}
                     <div className="d-grid col-6 mx-auto mt-5">
                       <button
-                        className="form-submit btn-register py-2 fs-5"
+                        className="btn btn-success py-2 fs-5"
                         type="submit"
                       >
                         Next
