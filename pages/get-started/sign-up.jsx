@@ -1,30 +1,14 @@
-// import { useRouter } from "next/router";
-// import { useState, useEffect } from "react";
-
-// function SignUp() {
-//   const router = useRouter();
-
-//   return (
-//     <>
-//       <h1>Sign-Up</h1>
-//       <button onClick={() => router.push("/get-started/choose-plan")}>
-//         NEXT
-//       </button>
-//     </>
-//   );
-// }
-
-// export default SignUp;
-
 import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
 import * as Yup from "yup";
+import { useForm } from "../../context/formContext";
 import TextError from "./../../components/TextError";
 
 const FormRegister = () => {
   const router = useRouter();
+  const { setFormUser } = useForm();
   const [validCaptcha, setValidCaptcha] = useState(null);
   const captcha = useRef(null);
   const onChange = () => {
@@ -52,6 +36,7 @@ const FormRegister = () => {
     if (captcha.current.getValue()) {
       setValidCaptcha(true);
       console.log("you registered successfully");
+      setFormUser(values);
       router.push("/get-started/choose-plan/");
     } else {
       setValidCaptcha(false);
@@ -124,10 +109,6 @@ const FormRegister = () => {
                     </div>
                     {validCaptcha === false && (
                       <div className="captcha">
-                        {/* <div className="mt-1 text-danger">
-                          {" "}
-                          please complete the captcha{" "}
-                        </div> */}
                         <TextError text={"Please complete the captcha"} />
                       </div>
                     )}

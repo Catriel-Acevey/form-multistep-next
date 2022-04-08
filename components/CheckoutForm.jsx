@@ -1,9 +1,15 @@
 import React from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
+import { useForm } from "../context/formContext";
+
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+
+  const { formPlan, formUser, setFormPayMethod } = useForm();
+  console.log(formPlan);
+  console.log(formUser);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +20,8 @@ const CheckoutForm = () => {
     });
 
     if (!error) {
-      console.log(paymentMethod);
+      // console.log(paymentMethod);
+      setFormPayMethod(paymentMethod);
     }
   };
 

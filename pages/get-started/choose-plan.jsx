@@ -4,7 +4,8 @@ import { useForm } from "../../context/formContext";
 
 function ChoosePlan() {
   const router = useRouter();
-  const { setFormFields } = useForm();
+  const { formUser, setFormPlan } = useForm();
+  console.log(formUser);
   return (
     <>
       <div className="container p-4">
@@ -13,10 +14,10 @@ function ChoosePlan() {
             <h1>Choose Plan</h1>
             <Formik
               initialValues={{
-                picked: "",
+                plan: "",
               }}
               onSubmit={(values) => {
-                setFormFields({ plan: values.picked });
+                setFormPlan(values);
                 router.push("/get-started/checkout/");
               }}
             >
@@ -30,10 +31,10 @@ function ChoosePlan() {
                       <Field
                         className="form-check-input"
                         type="radio"
-                        name="picked"
+                        name="plan"
                         value="month"
                       />
-                      <label className="form-check-label" htmlFor="picked">
+                      <label className="form-check-label" htmlFor="plan">
                         Month
                       </label>
                     </div>
@@ -41,15 +42,15 @@ function ChoosePlan() {
                       <Field
                         className="form-check-input"
                         type="radio"
-                        name="picked"
+                        name="plan"
                         value="year"
                       />
 
-                      <label className="form-check-label" htmlFor="picked">
+                      <label className="form-check-label" htmlFor="plan">
                         Year
                       </label>
                     </div>
-                    <div>Picked: {values.picked}</div>
+                    <div>Plan: {values.plan}</div>
                   </div>
 
                   <button className="btn btn-success" type="submit">
