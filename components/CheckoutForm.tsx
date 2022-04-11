@@ -1,7 +1,8 @@
-import React from "react";
+import React, { EventHandler, FormEventHandler } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import { useForm } from "../context/formContext";
+import { StripeCardElement, StripeElementType } from "@stripe/stripe-js";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -11,12 +12,12 @@ const CheckoutForm = () => {
   console.log(formPlan);
   console.log(formUser);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error, paymentMethod }: any = await stripe?.createPaymentMethod({
       type: "card",
-      card: elements.getElement(CardElement),
+      card: elements?.getElement(CardElement)!,
     });
 
     if (!error) {
