@@ -109,7 +109,7 @@ const SignUpForm = () => {
               </div>
             )}
             <div className="d-grid col-6 mx-auto mt-5">
-              <button className="btn btn-success py-2 fs-5" type="submit">
+              <button className="button btn-pizazz py-2 fs-5" type="submit">
                 Next
               </button>
             </div>

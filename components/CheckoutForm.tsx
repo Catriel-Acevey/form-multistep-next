@@ -1,8 +1,7 @@
-import React, { EventHandler, FormEventHandler } from "react";
+import React from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import { useForm } from "../context/formContext";
-import { StripeCardElement, StripeElementType } from "@stripe/stripe-js";
 
 const CheckoutForm = () => {
   const stripe = useStripe();

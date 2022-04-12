@@ -1,0 +1,39 @@
+.button {
+  border-radius: 0.313rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-mojo {
+  color: $white;
+  background: $mojo;
+  border: 0.188rem solid $mojo;
+
+  &:hover {
+    color: $mojo;
+    background-color: $white;
+  }
+}
+
+.btn-scooter {
+  color: $white;
+  background: $scooter;
+  border: 0.188rem solid $scooter;
+
+  &:hover {
+    color: $scooter;
+    background-color: $white;
+  }
+}
+
+.btn-pizazz {
+  color: $white;
+  background: $pizazz;
+  border: 0.188rem solid $red-stage;
+
+  &:hover {
+    color: $pizazz;
+    background-color: $white;
+  }
+}
+

@@ -1,0 +1,76 @@
+/* VARIABLES */
+
+// colors
+$primary-shade: rgb(255, 78, 46);
+$primary-light: lighten($primary-shade, 37%);
+$primary-dark: darken($primary-shade, 12%);
+$accent-shade: #0079c0;
+$accent-light: lighten($accent-shade, 37%);
+$accent-dark: darken($accent-shade, 12%);
+
+// Reassign color vars to semantic color scheme
+$cyan: #17a2b8;
+$gray-100: #f8f9fa;
+$gray-800: #343a40;
+$green: #28a745;
+$my-sin: #ffb615;
+$red: #dc3545;
+$regent-gray: #7b8b98;
+$tundora: #404040;
+$white: #fff;
+$yellow: #ffc107;
+
+$black: #000;
+$mint-tulip: #bce4f4;
+$mojo: #c13f35;
+$scooter: #29b5cf;
+$totem-pole: #8c2e0b;
+$provincial-pink: #fef5f1;
+$flamingo: #ed541d;
+$aqua-spring: #f0faf8;
+$cornflower: #94cce9;
+$pizazz: #FF8A00;
+$red-stage: #C65C07;
+
+
+$theme-colors: (
+  primary: $accent-shade,
+  secondary: $primary-shade,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $gray-800,
+);
+$brand-primary: $accent-shade;
+//$brand-success: $green;
+//$brand-info: $teal;
+//$brand-warning: $orange;
+//$brand-danger: $red;
+$brand-inverse: $primary-shade;
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: $white;
+$body-color: $gray-800;
+$inverse-bg: $primary-shade;
+$inverse-color: $white;
+// Links
+//
+// Style anchor elements.
+$link-color: $accent-shade;
+$link-decoration: none;
+$link-hover-color: $accent-dark;
+$link-hover-decoration: underline;
+// Comments
+$comment-spacer-x: 1.25em;
+$comment-spacer-y: 1.25em;
+// Responsive font sizes
+$enable-responsive-font-sizes: true;
+$enable-shadows: false;
+$enable-gradients: false;
+// Breadcrumbs (Works only on Bootstrap 5+)
+// $breadcrumb-divider: quote(">");
+
+// Use https://chir.ag/projects/name-that-color/#6195ED to name a color and add the prefix $bc- (from base color)
