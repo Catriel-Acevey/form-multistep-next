@@ -108,7 +108,7 @@ const SignUpForm = () => {
                 <TextError text={"Please complete the captcha"} />
               </div>
             )}
-            <div className="d-grid col-6 mx-auto mt-5">
+            <div className="d-grid gap-2 mt-5">
               <button className="button btn-pizazz py-2 fs-5" type="submit">
                 Next
               </button>
