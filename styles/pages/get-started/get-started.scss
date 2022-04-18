@@ -1,12 +1,35 @@
-.get-started{
-    .title{
-        h1{
-            color:$pizazz
-        }
+.get-started {
+  width: 100%;
+  background-repeat: repeat-x;
+  background-image: url("https://www.skybrary.org/sites/all/themes/custom/at_rrkidz/images/get-started/background.jpg");
+  background-color: $white;
+  @media (min-width: 980px) {
+    background-size: 162.5rem 25rem;
+  }
+  @media (max-width: 979px) {
+    background-size: 56.25rem 22rem;
+  }
+  .title {
+    h1 {
+      color: $jaffa;
     }
-    .form{
-        label{
-            font-weight: bold;
-        }
+  }
+  .form {
+    label {
+      font-weight: bold;
     }
+  }
+  .list {
+    li {
+      color: $oslo-gray;
+    }
+  }
+  .plan {
+    img {
+      opacity: 0.4;
+    }
+    :hover {
+      opacity: 1;
+    }
+  }
 }
