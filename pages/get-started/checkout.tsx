@@ -12,11 +12,12 @@ function Checkout() {
   return (
     <>
       <Elements stripe={stripePromise}>
-        <div className="container p-4 text-center">
-          <h1>Checkout</h1>
-          <div className="row">
-            <div className="col-md-4 offset-md-4">
-              <CheckoutForm />
+        <div className="get-started">
+          <div className="container p-4 text-center">
+            <div className="row">
+              <div className="col-md-4 offset-md-4">
+                <CheckoutForm />
+              </div>
             </div>
           </div>
         </div>

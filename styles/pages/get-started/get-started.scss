@@ -31,5 +31,12 @@
     :hover {
       opacity: 1;
     }
+    .selected {
+      opacity: 1;
+    }
+  }
+  .payment-sub-info {
+    color: $silver-chalice;
+    font-size: 0.875rem;
   }
 }
