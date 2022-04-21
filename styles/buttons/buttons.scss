@@ -36,4 +36,12 @@
     background-color: $white;
   }
 }
+.btn-glacier {
+  color: $white;
+  background: $glacier;
 
+  &:hover {
+    color: $glacier;
+    background-color: $white;
+  }
+}

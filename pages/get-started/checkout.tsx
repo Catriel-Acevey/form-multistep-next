@@ -10,19 +10,17 @@ const stripePromise = loadStripe(
 function Checkout() {
   const router = useRouter();
   return (
-    <>
-      <Elements stripe={stripePromise}>
-        <div className="get-started">
-          <div className="container p-4 text-center">
-            <div className="row">
-              <div className="col-md-4 offset-md-4">
-                <CheckoutForm />
-              </div>
+    <Elements stripe={stripePromise}>
+      <div className="get-started">
+        <div className="container p-4">
+          <div className="row">
+            <div className="col-md-8 offset-md-1">
+              <CheckoutForm />
             </div>
           </div>
         </div>
-      </Elements>
-    </>
+      </div>
+    </Elements>
   );
 }
 

@@ -12,6 +12,7 @@
   .title {
     h1 {
       color: $jaffa;
+      font-size: 3.125rem;
     }
   }
   .form {
@@ -38,5 +39,42 @@
   .payment-sub-info {
     color: $silver-chalice;
     font-size: 0.875rem;
+  }
+  .option-notifier {
+    color: $scorpion;
+    font-size: 1.5rem;
+    font-weight: bold;
+    .plan-purple {
+      color: $deluge;
+    }
+    .edit-plan-link {
+      color: $oslo-gray;
+      text-decoration: none;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+  .separator {
+    border: 1px solid #e8ecf0;
+  }
+  .info {
+    color: $oslo-gray;
+  }
+  .row-info {
+    .info {
+      font-size: 21px;
+    }
+    .info-total {
+      font-weight: bold;
+      color: #444;
+    }
+  }
+  .info-cvv {
+    color: $glacier;
+  }
+  .form-item-agreeterms {
+    font-weight: bold;
+    color: $oslo-gray;
   }
 }
