@@ -12,6 +12,11 @@ const CheckoutForm = () => {
   console.log(formPlan);
   console.log(formUser);
 
+  const handleCoupon = (e: FormEvent) => {
+    e.preventDefault();
+    console.log("coupon applied");
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -90,7 +95,10 @@ const CheckoutForm = () => {
                 />
               </div>
               <div className="col-auto">
-                <button className="btn btn-sm button btn-glacier mb-3">
+                <button
+                  className="btn btn-sm button btn-glacier mb-3"
+                  onClick={handleCoupon}
+                >
                   {" "}
                   Apply{" "}
                 </button>
