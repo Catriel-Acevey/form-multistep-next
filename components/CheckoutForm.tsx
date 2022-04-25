@@ -1,31 +1,36 @@
 import React, { FormEvent } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { Formik, Form, Field, ErrorMessage, FormikValues } from "formik";
+import * as Yup from "yup";
 
 import { useForm } from "../context/formContext";
-import { PaymentMethod, StripeElementType } from "@stripe/stripe-js";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
   const { formPlan, formUser, setFormPayMethod } = useForm();
-  console.log(formPlan);
-  console.log(formUser);
 
-  const handleCoupon = (e: FormEvent) => {
+  const validate = Yup.object({
+    coupon: Yup.string(),
+    agreeterms: Yup.bool().required("Please accept the terms."),
+  });
+
+  const handleCoupon = (e: FormEvent, values: FormikValues) => {
     e.preventDefault();
-    console.log("coupon applied");
+    console.log(`coupon applied: ${values.coupon}`);
   };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-
+  const handleSubmit = async (values: FormikValues) => {
     const { paymentMethod }: any = await stripe?.createPaymentMethod({
       type: "card",
       card: elements?.getElement(CardElement)!,
     });
     setFormPayMethod(paymentMethod);
     console.log(paymentMethod);
+    console.log(formPlan);
+    console.log(formUser);
+    console.log(values);
   };
 
   return (
@@ -72,80 +77,87 @@ const CheckoutForm = () => {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col mb-3">
-            <CardElement className="form-control" />
-            <div className="d-flex flex-row-reverse bd-highlight">
-              <a className="info-cvv" id="cvv">
-                What's this?
+      <Formik
+        initialValues={{
+          coupon: "",
+          agreeterms: false,
+        }}
+        validationSchema={validate}
+        onSubmit={handleSubmit}
+      >
+        {({ values }) => (
+          <Form>
+            <div className="row">
+              <div className="col mb-3">
+                <CardElement className="form-control" />
+                <div className="d-flex flex-row-reverse bd-highlight">
+                  <a className="info-cvv" id="cvv">
+                    What's this?
+                  </a>
+                </div>
+              </div>
+              <div className="col">
+                <div className="row">
+                  <div className="col-auto">
+                    <Field
+                      placeholder="Coupon code"
+                      type="text"
+                      name="coupon"
+                      className="form-control form-control-sm"
+                    />
+                  </div>
+                  <div className="col-auto">
+                    <button
+                      className="btn btn-sm button btn-glacier mb-3"
+                      onClick={(e) => handleCoupon(e, values)}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="info mb-3">
+              Your Skybrary ® subscription from Reading Is Fundamental, which
+              starts with a One Month FREE trial, will begin when you click the
+              "Start my free trial" button. Simply cancel anytime during the One
+              Month trial and you will not be charged. To cancel, go to "My
+              Account" and click on "Billing Frequency". By clicking "Start my
+              free trial", you authorize us to continue your membership
+              automatically by charging to the payment method provided, monthly
+              or annually, until you cancel.{" "}
+            </div>
+            <div className="mb-3">
+              <a
+                href="/terms-of-use?from-checkout=1"
+                className="info-cvv"
+                target="_blank"
+              >
+                Terms of Service
               </a>
             </div>
-          </div>
-          <div className="col">
-            <div className="row">
-              <div className="col-auto">
-                <input
-                  placeholder="Coupon code"
-                  type="text"
-                  id="edit-coupon-code"
-                  name="coupon_code"
-                  value=""
-                  className="form-control form-control-sm"
+            <div className="form-check form-item-agreeterms mb-3">
+              <label>
+                <Field
+                  type="checkbox"
+                  name="agreeterms"
+                  className="form-check-input"
                 />
-              </div>
-              <div className="col-auto">
-                <button
-                  className="btn btn-sm button btn-glacier mb-3"
-                  onClick={handleCoupon}
-                >
-                  {" "}
-                  Apply{" "}
-                </button>
-              </div>
+                {/* {`${values.toggle}`} */} I have read and agree with the
+                terms above.
+              </label>
             </div>
-          </div>
-        </div>
-        <div className="info mb-3">
-          {" "}
-          Your Skybrary ® subscription from Reading Is Fundamental, which starts
-          with a One Month FREE trial, will begin when you click the "Start my
-          free trial" button. Simply cancel anytime during the One Month trial
-          and you will not be charged. To cancel, go to "My Account" and click
-          on "Billing Frequency". By clicking "Start my free trial", you
-          authorize us to continue your membership automatically by charging to
-          the payment method provided, monthly or annually, until you cancel.{" "}
-        </div>
-        <div className="mb-3">
-          <a
-            href="/terms-of-use?from-checkout=1"
-            className="info-cvv"
-            target="_blank"
-          >
-            Terms of Service
-          </a>
-        </div>
-        <div>
-          <div className="form-check form-item-agreeterms mb-3">
-            <input
-              type="checkbox"
-              id="edit-agreeterms"
-              name="agreeterms"
-              value="1"
-              className="form-check-input"
-            />{" "}
-            <label className="option">
-              I have read and agree with the terms above.{" "}
-            </label>
-          </div>
-        </div>
-        <div>
-          <button type="submit" className="button btn-pizazz py-2 fs-5 mt-2">
-            {" "}
-            START MY FREE TRIAL{" "}
-          </button>
-        </div>
-      </form>
+            <div>
+              <button
+                type="submit"
+                className="button btn-pizazz py-2 fs-5 mt-2"
+              >
+                START MY FREE TRIAL
+              </button>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

@@ -56,18 +56,18 @@
     }
   }
   .separator {
-    border: 1px solid #e8ecf0;
+    border: 0.063rem solid $athens-gray;
   }
   .info {
     color: $oslo-gray;
   }
   .row-info {
     .info {
-      font-size: 21px;
+      font-size: 1.313rem;
     }
     .info-total {
       font-weight: bold;
-      color: #444;
+      color: $tundora;
     }
   }
   .info-cvv {
